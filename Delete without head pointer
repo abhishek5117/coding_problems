@@ -1,0 +1,52 @@
+
+# You are given a pointer/ reference to the node which is to be deleted from the linked list of N nodes. The task is to delete the node. Pointer/ reference to head node is not given. 
+
+# Note: No head reference is given to you. It is guaranteed that the node to be deleted is not a tail node in the linked list
+
+
+
+class Node():
+    # constructor to initialize a new node
+    def __init__(self, val = None):
+        self.data = val
+        self.next = None
+ 
+# push a node to the front of the list
+def push(head, val):
+    newnode = Node(val)
+    newnode.next = head.next
+    head.next = newnode
+ 
+# print the list
+def print_list(head):
+ 
+    temp = head.next
+    while(temp != None):
+        print(temp.data, end = ' ')
+        temp = temp.next
+    print()
+ 
+# function to delete the node
+def delete_node(node):
+    Node=node
+    Node=Node.next
+    node.data,Node.data=Node.data,node.data
+    node.next=Node.next
+ 
+if __name__ == '__main__':
+
+    head = Node()
+ 
+    # construct the below linked list
+    # 23->2->5->12->1
+    push(head, 23)
+    push(head, 2)
+    push(head, 5)
+    push(head, 12)
+    push(head, 1)
+ 
+    print('list before deleting:')
+    print_list(head)
+    delete_node(head.next)
+    print('list after deleting: ')
+    print_list(head)
