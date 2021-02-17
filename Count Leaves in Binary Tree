@@ -1,0 +1,28 @@
+
+problem statement: Given a Binary Tree of size N , You have to count leaves in it.
+#recursive approach
+
+class Node:       
+    # Constructor to create a new node 
+    def __init__(self, data): 
+        self.data = data  
+        self.left = None
+        self.right = None
+  
+# Function to  count of leaf nodes in binary tree 
+def total_leaf(node): 
+    if node is None: 
+        return 0 
+    if(node.left is None and node.right is None): 
+        return 1 
+    else: 
+        return total_leaf(node.left) + total_leaf(node.right) 
+ 
+root = Node(5) 
+root.left = Node(6) 
+root.right = Node(6) 
+root.left.left = Node(6) 
+root.left.right = Node(7) 
+root.right.left = Node(11) 
+root.right.right = Node(17) 
+print (total_leaf(root)) 
