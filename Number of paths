@@ -1,0 +1,13 @@
+#The problem is to count all the possible paths from top left to bottom right of a MxN matrix with 
+#the constraints that from each cell you can either move to right or down.
+
+
+def total_paths(m, n): 
+    if(m == 1 or n == 1): 
+        return 1
+
+    return total_paths(m-1, n) + total_paths(m, n-1) 
+ 
+m = int(input())
+n = int(input())
+print(total_paths(m, n)) 
