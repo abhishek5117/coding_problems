@@ -1,0 +1,22 @@
+# Given a string S, the task is to create a string with the first letter of every word in the string.
+
+
+def first_words(string):
+  res=""
+  flag=True
+  n=len(string)
+  for i in range(n):
+    if (string[i] == ' '):
+      flag=True
+    elif (string[i] != ' ' and flag == True):
+      res += (string[i])
+      flag = False
+  return res
+
+if __name__ == "__main__":
+  string=input()
+  print(first_words(string))
+
+
+# Time complexity=O(n)
+
