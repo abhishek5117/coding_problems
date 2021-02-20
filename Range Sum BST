@@ -1,0 +1,50 @@
+
+#Given a root node of a binary search tree having N nodes, and the task is to return the sum of the values of all nodes with a value in range [L,R] (inclusive).
+
+#Expected time complexity = O(N) (where N is the total number of nodes in a Binary search tree)
+
+
+
+
+from random import randint
+from math import gcd
+class Node:
+    def __init__(self, nodeValue):
+        self.val = nodeValue
+        self.left = None
+        self.right = None
+#function to build tree
+def build_tree(arr,start,end):
+    if start > end:
+        return None
+    m = (start+end) // 2
+    x = Node(arr[m])
+    x.left = build_tree(arr,start,m-1)
+    x.right = build_tree(arr,m+1,end)
+    return x
+#do not change anything above This
+def rangeSumBST(root, L, R):
+	if root == None:
+		return 0
+	count= 0
+	if root.val >= L and root.val <= R:
+		count +=root.val
+	
+	count += rangeSumBST(root.left, L, R)
+	count += rangeSumBST(root.right, L, R)
+	
+	return count
+	
+	
+		
+    #compelete the code
+#do not change anything below this
+if __name__ == '__main__':
+    numTest = int(input())
+    for i in range(numTest):
+        n = int(input())
+        arr1 = list(map(int, input().split()))
+        l, r = map(int, input().split())
+        root = build_tree(arr1,0 ,len(arr1)-1)
+        ans = rangeSumBST(root, l, r)
+        print(ans)
