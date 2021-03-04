@@ -1,0 +1,55 @@
+
+# Description
+# A staircase takes N steps to reach the top, we can either climb 1 or 2 steps at a time, task is to find in how many distinct ways can we climb to top of staircase.
+
+# Expected time complexity = O(N)
+
+# Input format
+# First line is an integer T, representing total number of test cases.
+
+# Each test case contains 1 lines of input having an integer N representing the total number of staircase.
+
+# However, you need not worry about reading the input. It is provided as a template. You only need to write the code for the function.
+
+# Output format
+# Print the single integer representing total number of distinct ways we can climb to the top of staircase in new line for each testcase.
+
+# Sample input 1
+# 1
+# 3
+# Sample output 1
+# 3
+# Explanation
+# There are three ways to climb to the top.
+#   1. 1 step + 1 step + 1 step
+#   2. 1 step + 2 steps
+#   3. 2 steps + 1 step
+
+
+Solution:
+
+def climbStairs(n):
+    if n <=2: 
+        return n
+    pre1 = 1
+    pre2 = 2
+    for i in range(2,n):
+        current = pre1+ pre2
+        pre1 = pre2
+        pre2 = current
+    return current
+
+
+#do not change anything below this
+
+if __name__ == '__main__':
+
+    numTest = int(input())
+
+    for i in range(numTest):
+
+        n = int(input())
+
+        ans = climbStairs(n)
+
+        print(ans)
