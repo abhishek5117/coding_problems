@@ -1,0 +1,53 @@
+# Description
+# Given a non negative integer number N, for every numbers i in the range 0 <= i <= N calculate the number of 1's in their binary representation and return them as an array.
+
+# Expected time complexity = O(N)
+
+# Note: Avoid use of inbuilt function to calculate set bits.
+
+# Input format
+# First line is an integer T, representing total number of test cases.
+
+# Each test case contains 1 lines of input, having an integer N representing range up-to which we have to calculate set bits of each number from 0.
+
+# However, you need not worry about reading the input. It is provided as a template. You only need to write the code for the function.
+
+# Output format
+# Print the space separated array of length N+1 representing set bits of numbers in new line for each testcase.
+
+# Sample input 1
+# 1
+# 5
+# Sample output 1
+# 0 1 1 2 1 2
+# Explanation
+# number  binary representation  total set bits
+#  0          000                   0
+#  1          001                   1(number of 1's in binary representation)
+#  2          010                   1
+#  3          011                   2    
+#  4          100                   1
+#  5          101                   2
+
+
+#do not change anything above Thi
+def countBits(num):
+    ans = [0]
+    for i in range(1, num+1):
+        ans.append(ans[i >> 1] + (i & 1))
+    return ans
+    
+    
+#do not change anything below this
+
+if __name__ == '__main__':
+
+    numTest = int(input())
+
+    for i in range(numTest):
+
+        n = int(input())
+
+        ans = countBits(n)
+
+        print(*ans)
