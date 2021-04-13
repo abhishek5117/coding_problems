@@ -1,0 +1,36 @@
+Nonrepeating Character
+Have the function NonrepeatingCharacter(str) take the str parameter being passed, 
+which will contain only alphabetic characters and spaces, and return the first non-repeating character. 
+For example: if str is "agettkgaeee" then your program should return k. 
+The string will always contain at least one character and there will always be at least one non-repeating character.
+Examples
+Input: "abcdef"
+Output: a
+Input: "hello world hi hey"
+Output: w
+
+**********************************************************************************************************************************************************
+
+function NonrepeatingCharacter(str) { 
+
+  // code goes here "" 
+  var str=str.split("");
+  var res="";
+  for (let i=0;i<str.length;i++){
+    let non_repeat = [];
+    for (let j=0;j<str.length;j++){
+      if(str[j] == str[i]){
+        non_repeat.push(str[j]);
+      }
+    }
+    if(non_repeat.length==1){
+      res=str[i]
+      break;
+    }
+  }
+  return res; 
+
+}
+   
+// keep this function call here 
+console.log(NonrepeatingCharacter(readline()));
